@@ -39,8 +39,12 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class EventsModel {
 
 	private String id;		// sortable
-	private String title;	// mandatory
-	private String description;
+	private String firstName;	// mandatory
+	private String lastName;	// mandatory
+	private String email;		// mandatory
+	private String comment;
+	private SalutationType salutation; // default
+	private InvitationState invitationState; // default
 	private Date createdAt;
 	private String createdBy;
 	private Date modifiedAt;
@@ -57,9 +61,10 @@ public class EventsModel {
 	 * @param title	the title (mandatory)
 	 * @param description	a description
 	 */
-	public EventsModel(String title, String description) {
-		this.title = title;
-		this.description = description;
+	public EventsModel(String firstName, String lastName, String email) {
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
 	}
 
 	/**
@@ -79,37 +84,90 @@ public class EventsModel {
 	}
 
 	/**
-	 * Get the title.
-	 * @return the title
+	 * @return firstName
 	 */
-	public String getTitle() {
-		return title;
+	public String getFirstName() {
+		return firstName;
 	}
 
 	/**
-	 * Set the title.
-	 * @param title  the title to set
+	 * @param firstName
 	 */
-	public void setTitle(String title) {
-		this.title = title;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	/**
-	 * Get the description.
-	 * @return the description
+	 * @return lastName
 	 */
-	public String getDescription() {
-		return description;
+	public String getLastName() {
+		return lastName;
 	}
 
 	/**
-	 * Set the description.
-	 * @param description  the description to set
+	 * @param lastName
 	 */
-	public void setDescription(String description) {
-		this.description = description;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
-/**
+
+	/**
+	 * @return email
+	 */
+	public String getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email
+	 */
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	/**
+	 * @return comment
+	 */
+	public String getComment() {
+		return comment;
+	}
+
+	/**
+	 * @param comment
+	 */
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+
+	/**
+	 * @return salutation
+	 */
+	public SalutationType getSalutation() {
+		return salutation;
+	}
+
+	/**
+	 * @param salutation
+	 */
+	public void setSalutation(SalutationType salutation) {
+		this.salutation = salutation;
+	}
+
+	/**
+	 * @return invitationState
+	 */
+	public InvitationState getInvitationState() {
+		return invitationState;
+	}
+
+	/**
+	 * @param invitationState
+	 */
+	public void setInvitationState(InvitationState invitationState) {
+		this.invitationState = invitationState;
+	}
+	
+	/**
 	 * Get the creation date.
 	 * @return the creation date
 	 */
