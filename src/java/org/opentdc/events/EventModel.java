@@ -36,7 +36,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement
-public class EventsModel {
+public class EventModel {
 
 	private String id;		// sortable
 	private String firstName;	// mandatory
@@ -53,7 +53,7 @@ public class EventsModel {
 	/**
 	 * Empty constructor.
 	 */
-	public EventsModel() {
+	public EventModel() {
 	}
 
 	/**
@@ -61,7 +61,7 @@ public class EventsModel {
 	 * @param title	the title (mandatory)
 	 * @param description	a description
 	 */
-	public EventsModel(String firstName, String lastName, String email) {
+	public EventModel(String firstName, String lastName, String email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
@@ -236,13 +236,13 @@ public class EventsModel {
 	/**
 	 * Comparator for comparing two rates based on their id.
 	 */
-	public static Comparator<EventsModel> EventComparator = new Comparator<EventsModel>() {
+	public static Comparator<EventModel> EventComparator = new Comparator<EventModel>() {
 
 		/* (non-Javadoc)
 		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
 		 * @return -1 if the first object is null of smaller; otherwise it returns +1
 		 */
-		public int compare(EventsModel obj1, EventsModel obj2) {
+		public int compare(EventModel obj1, EventModel obj2) {
 			if (obj1.getId() == null) {
 				return -1;
 			}

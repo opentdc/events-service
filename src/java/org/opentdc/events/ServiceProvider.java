@@ -36,24 +36,24 @@ import org.opentdc.service.exception.ValidationException;
  */
 public interface ServiceProvider {
 	
-	public abstract List<EventsModel> list(
+	public abstract List<EventModel> list(
 		String queryType,
 		String query,
 		int position,
 		int size
 	);
 
-	public abstract EventsModel create(
-		EventsModel event) 
+	public abstract EventModel create(
+		EventModel event) 
 	throws DuplicateException, ValidationException;
 
-	public abstract EventsModel read(
+	public abstract EventModel read(
 		String id) 
 	throws NotFoundException;
 
-	public abstract EventsModel update(
+	public abstract EventModel update(
 		String id, 
-		EventsModel event) 
+		EventModel event) 
 	throws NotFoundException, ValidationException;
 
 	public abstract void delete(

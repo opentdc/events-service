@@ -79,7 +79,7 @@ public class EventsService extends GenericService<ServiceProvider> {
 	@GET
 	@Path("/")
 //	@ApiOperation(value = "Return a list of all events", response = List<EventsModel>.class)
-	public List<EventsModel> list(
+	public List<EventModel> list(
 		@DefaultValue(DEFAULT_QUERY_TYPE) @QueryParam("queryType") String queryType,
 		@DefaultValue(DEFAULT_QUERY) @QueryParam("query") String query,
 		@DefaultValue(DEFAULT_POSITION) @QueryParam("position") int position,
@@ -94,8 +94,8 @@ public class EventsService extends GenericService<ServiceProvider> {
 	//	@ApiResponses(value = 
 	//			{ @ApiResponse(code = 409, message = "An object with the same id exists already (CONFLICT)") },
 	//			{ @ApiResponse(code = 400, message = "Invalid ID supplied or mandatory field missing (BAD_REQUEST)" })
-	public EventsModel create(
-		EventsModel event) 
+	public EventModel create(
+		EventModel event) 
 	throws DuplicateException, ValidationException {
 		return sp.create(event);
 	}
@@ -105,7 +105,7 @@ public class EventsService extends GenericService<ServiceProvider> {
 	//	@ApiOperation(value = "Find a event by id", response = EventsModel.class)
 	//	@ApiResponses(value = { 
 	//			@ApiResponse(code = 405, message = "An object with the given id was not found (NOT_FOUND)" })
-	public EventsModel read(
+	public EventModel read(
 		@PathParam("id") String id
 	) throws NotFoundException {
 		return sp.read(id);
@@ -117,9 +117,9 @@ public class EventsService extends GenericService<ServiceProvider> {
 	//	@ApiResponses(value =  
 	//			{ @ApiResponse(code = 405, message = "An object with the given id was not found (NOT_FOUND)" },
 	//			{ @ApiResponse(code = 400, message = "Invalid new values given or trying to change immutable fields (BAD_REQUEST)" })
-	public EventsModel update(
+	public EventModel update(
 		@PathParam("id") String id,
-		EventsModel event
+		EventModel event
 	) throws NotFoundException, ValidationException {
 		return sp.update(id, event);
 	}
