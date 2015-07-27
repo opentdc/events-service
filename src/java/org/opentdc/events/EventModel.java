@@ -43,6 +43,7 @@ public class EventModel {
 	private String lastName;	// mandatory
 	private String email;		// mandatory
 	private String comment;
+	private String contact;  	// internal contact
 	private SalutationType salutation; // default
 	private InvitationState invitationState; // default
 	private Date createdAt;
@@ -232,6 +233,20 @@ public class EventModel {
 		this.modifiedBy = modifiedBy;
 	}
 	
+	/**
+	 * @return the contact
+	 */
+	public String getContact() {
+		return contact;
+	}
+
+	/**
+	 * @param contact the contact to set
+	 */
+	public void setContact(String contact) {
+		this.contact = contact;
+	}
+
 	/******************************* Comparator *****************************/
 	/**
 	 * Comparator for comparing two rates based on their id.

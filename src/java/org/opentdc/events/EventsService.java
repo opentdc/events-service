@@ -135,4 +135,29 @@ public class EventsService extends GenericService<ServiceProvider> {
 	throws NotFoundException, InternalServerErrorException {
 		sp.delete(id);
 	}
+	
+	@GET
+	@Path("/{id}/message")
+	public String getMessage(
+			@PathParam("id") String id)
+		throws NotFoundException, InternalServerErrorException {
+		return sp.getMessage(id);
+	}
+	
+	// TODO: should be POST, but it is easier to test
+	@GET
+	@Path("/{id}/send")
+	public void sendMessage(
+			@PathParam("id") String id)
+		throws NotFoundException, InternalServerErrorException {
+		sp.sendMessage(id);
+	}
+	
+	// TODO: should be POST, but it is easier to test
+	@GET
+	@Path("/{id}/sendall")
+	public void sendAllMessages()
+		throws InternalServerErrorException {
+		sp.sendAllMessages();
+	}
 }

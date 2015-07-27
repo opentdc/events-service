@@ -59,4 +59,15 @@ public interface ServiceProvider {
 	public abstract void delete(
 		String id) 
 	throws NotFoundException, InternalServerErrorException;
+	
+	public abstract String getMessage(
+			String id)
+	throws NotFoundException, InternalServerErrorException;
+	
+	public abstract void sendMessage(
+			String id)
+	throws NotFoundException, InternalServerErrorException;
+
+	public abstract void sendAllMessages()
+	throws InternalServerErrorException;
 }
