@@ -43,6 +43,7 @@ public class EventModel {
 	private String lastName;	// mandatory
 	private String email;		// mandatory
 	private String comment;
+	private String internalComment;
 	private String contact;  	// internal contact
 	private SalutationType salutation; // default
 	private InvitationState invitationState; // default
@@ -245,6 +246,20 @@ public class EventModel {
 	 */
 	public void setContact(String contact) {
 		this.contact = contact;
+	}
+
+	/**
+	 * @return the internalComment
+	 */
+	public String getInternalComment() {
+		return internalComment;
+	}
+
+	/**
+	 * @param internalComment the internalComment to set
+	 */
+	public void setInternalComment(String internalComment) {
+		this.internalComment = internalComment;
 	}
 
 	/******************************* Comparator *****************************/
