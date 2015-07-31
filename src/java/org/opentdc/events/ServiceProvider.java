@@ -70,4 +70,14 @@ public interface ServiceProvider {
 
 	public abstract void sendAllMessages()
 	throws InternalServerErrorException;
+	
+	public abstract void register(
+			String id,
+			String comment)
+	throws NotFoundException, ValidationException;
+	
+	public abstract void deregister(
+			String id,
+			String comment)
+	throws NotFoundException, ValidationException;
 }

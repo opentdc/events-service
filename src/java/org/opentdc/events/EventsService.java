@@ -160,4 +160,22 @@ public class EventsService extends GenericService<ServiceProvider> {
 		throws InternalServerErrorException {
 		sp.sendAllMessages();
 	}
+	
+	@PUT
+	@Path("/{id}/register")
+	public void register(
+			@PathParam("id") String id,
+			String comment)
+		throws NotFoundException, ValidationException {
+		sp.register(id, comment);
+	}
+	
+	@PUT
+	@Path("/{id}/deregister")
+	public void deregister(
+			@PathParam("id") String id,
+			String comment)
+		throws NotFoundException, ValidationException {
+		sp.deregister(id, comment);
+	}
 }
