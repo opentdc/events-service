@@ -25,6 +25,8 @@ package org.opentdc.events;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.opentdc.service.exception.DuplicateException;
 import org.opentdc.service.exception.InternalServerErrorException;
 import org.opentdc.service.exception.NotFoundException;
@@ -52,6 +54,7 @@ public interface ServiceProvider {
 	throws NotFoundException;
 
 	public abstract EventModel update(
+		HttpServletRequest request,
 		String id, 
 		EventModel event) 
 	throws NotFoundException, ValidationException;
@@ -72,11 +75,13 @@ public interface ServiceProvider {
 	throws InternalServerErrorException;
 	
 	public abstract void register(
+			HttpServletRequest request,
 			String id,
 			String comment)
 	throws NotFoundException, ValidationException;
 	
 	public abstract void deregister(
+			HttpServletRequest request,
 			String id,
 			String comment)
 	throws NotFoundException, ValidationException;

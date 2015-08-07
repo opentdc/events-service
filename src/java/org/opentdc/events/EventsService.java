@@ -28,7 +28,9 @@ import java.util.logging.Logger;
 
 // import io.swagger.annotations.*;
 
+
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
 import javax.ws.rs.DefaultValue;
@@ -118,10 +120,11 @@ public class EventsService extends GenericService<ServiceProvider> {
 	//			{ @ApiResponse(code = 405, message = "An object with the given id was not found (NOT_FOUND)" },
 	//			{ @ApiResponse(code = 400, message = "Invalid new values given or trying to change immutable fields (BAD_REQUEST)" })
 	public EventModel update(
+		@Context HttpServletRequest request,
 		@PathParam("id") String id,
 		EventModel event
 	) throws NotFoundException, ValidationException {
-		return sp.update(id, event);
+		return sp.update(request, id, event);
 	}
 
 	@DELETE
@@ -164,18 +167,20 @@ public class EventsService extends GenericService<ServiceProvider> {
 	@PUT
 	@Path("/{id}/register")
 	public void register(
+			@Context HttpServletRequest request,
 			@PathParam("id") String id,
 			String comment)
 		throws NotFoundException, ValidationException {
-		sp.register(id, comment);
+		sp.register(request, id, comment);
 	}
 	
 	@PUT
 	@Path("/{id}/deregister")
 	public void deregister(
+			@Context HttpServletRequest request,
 			@PathParam("id") String id,
 			String comment)
 		throws NotFoundException, ValidationException {
-		sp.deregister(id, comment);
+		sp.deregister(request, id, comment);
 	}
 }
